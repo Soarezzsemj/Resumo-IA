@@ -7,4 +7,5 @@ const router = Router();
 router.post("/summary", summarryController);
 
 
+
 export default router;
