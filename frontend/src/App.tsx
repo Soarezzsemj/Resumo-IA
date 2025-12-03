@@ -12,7 +12,7 @@ function App() {
       setLoading(true);
       setSummary(""); // limpa o resumo anterior
 
-      const response = await fetch("http://localhost:3000/api/summary", {
+      const response = await fetch("https://resumo-ia.onrender.com/api/summary", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
