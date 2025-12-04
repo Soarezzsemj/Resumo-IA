@@ -8,6 +8,22 @@
   border: 2px solid #2563eb;
   border-radius: 10px;
   color: white;
+  box-sizing: border-box;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .box {
+    width: 90%;
+    max-height: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .box {
+    width: 100%;
+    padding: 15px;
+  }
 }
 
 .title {
@@ -19,5 +35,6 @@
 .text {
   font-size: 16px;
   line-height: 1.5;
-  white-space: pre-wrap; /* mantém quebra de linha */
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }

@@ -8,13 +8,37 @@ html, body, #root {
 }
 
 .layout {
+  margin-top: 30px;   /* antes era 60 ou 80 */
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 40px;
-  padding: 40px;
-  min-height: calc(100vh - 80px);
+  flex-direction: column; /* deixa centralizado primeiro */
+  align-items: center;
+  justify-content: flex-start;
+  gap: 25px;
+  padding: 0 20px;
+  min-height: calc(100vh - 120px);
   box-sizing: border-box;
+}
+
+
+
+/* ----- RESPONSIVIDADE ----- */
+
+/* Tablets / celulares */
+@media (max-width: 768px) {
+  .layout {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    gap: 30px;
+  }
+}
+
+/* Celulares pequenos */
+@media (max-width: 480px) {
+  .layout {
+    padding: 15px;
+    gap: 20px;
+  }
 }
 
 .left {
@@ -55,3 +79,28 @@ html, body, #root {
   70% { box-shadow: 0 0 0 10px rgba(37, 99, 235, 0); }
   100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
 }
+
+.descricao {
+  margin-top: 90px;
+  text-align: center;
+  color: #cbd5e1;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.4;
+  padding: 0 20px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+
+  /* leve glow */
+  text-shadow: 0 0 8px rgba(56, 189, 248, 0.3);
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .descricao {
+    margin-top: 70px;
+    font-size: 16px;
+  }
+}
+

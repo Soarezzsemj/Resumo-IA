@@ -1,0 +1,43 @@
+.header {
+  width: 100%;
+  padding: 15px 25px;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: transparent;
+  z-index: 1000;
+}
+
+.logo {
+  color: #38bdf8; /* azul base */
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  letter-spacing: 1px;
+
+  transition: all 0.25s ease;
+  cursor: pointer;
+
+  /* Luz suave */
+  text-shadow: 0 0 8px rgba(56, 189, 248, 0.4);
+}
+
+/* 🔥 NEON forte ao passar o mouse */
+.logo:hover {
+  color: #7dd3fc;
+  text-shadow:
+    0 0 10px rgba(56, 189, 248, 0.8),
+    0 0 20px rgba(56, 189, 248, 0.7),
+    0 0 30px rgba(56, 189, 248, 0.6),
+    0 0 40px rgba(56, 189, 248, 0.5);
+  transform: scale(1.03);
+}
+
+/* Mobile ajuste */
+@media (max-width: 480px) {
+  .logo {
+    font-size: 22px;
+  }
+}

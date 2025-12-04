@@ -1,6 +1,7 @@
 import { useState } from "react";
 import InputBar from "./components/InputBar";
 import SummaryBar from "./components/SummaryBar";
+import Header from "./components/Header";
 import "./App.css";
 
 function App() {
@@ -31,6 +32,12 @@ function App() {
   };
 
   return (
+    <>
+    <Header />
+    <p className="descricao">
+  Cole qualquer texto no campo abaixo e receba um resumo claro e objetivo gerado por inteligência artificial — rápido e automaticamente.
+</p>
+
     <div className="layout">
       <div className="left">
         <InputBar onSend={enviarTexto} />
@@ -46,6 +53,7 @@ function App() {
         {!loading && summary && <SummaryBar summary={summary} />}
       </div>
     </div>
+    </>
   );
 }
 
