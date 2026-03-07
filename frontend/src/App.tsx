@@ -33,26 +33,34 @@ function App() {
 
   return (
     <>
-    <Header />
-    <p className="descricao">
-  Cole qualquer texto no campo abaixo e receba um resumo claro e objetivo gerado por inteligência artificial — rápido e automaticamente.
-</p>
-
-    <div className="layout">
-      <div className="left">
-        <InputBar onSend={enviarTexto} />
-
-        {loading && (
-          <div className="loading-icon">
-            <div className="spinner"></div>
-          </div>
-        )}
+      <Header />
+      <div className="hero">
+        <span className="badge">✦ Powered by AI</span>
+        <p className="descricao">
+          Cole qualquer texto abaixo e receba um resumo claro e objetivo, gerado por inteligência artificial — rápido e automaticamente.
+        </p>
       </div>
 
-      <div className="right">
-        {!loading && summary && <SummaryBar summary={summary} />}
+      <div className="layout">
+        <div className="left">
+          <InputBar onSend={enviarTexto} />
+
+          {loading && (
+            <div className="loading-icon">
+              <div className="spinner"></div>
+              <span className="loading-text">Gerando resumo...</span>
+            </div>
+          )}
+        </div>
+
+        <div className="right">
+          {!loading && summary && <SummaryBar summary={summary} />}
+        </div>
       </div>
-    </div>
+
+      <footer className="footer">
+        Resume AI © 2026 — Resumos inteligentes em segundos
+      </footer>
     </>
   );
 }

@@ -1,43 +1,74 @@
-/* Fundo e reseta tudo */
+/* Reset & base */
 html, body, #root {
   height: 100%;
   margin: 0;
   padding: 0;
-  background-color: #0f172a;
+  background-color: #080f1e;
   overflow-x: hidden;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
+/* Hero section */
+.hero {
+  padding-top: 110px;
+  padding-bottom: 8px;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(56, 189, 248, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.22);
+  color: #38bdf8;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.8px;
+  padding: 5px 14px;
+  border-radius: 9999px;
+  margin-bottom: 20px;
+}
+
+.descricao {
+  color: #94a3b8;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* Main layout */
 .layout {
-  margin-top: 30px;   /* antes era 60 ou 80 */
+  margin-top: 28px;
   display: flex;
-  flex-direction: column; /* deixa centralizado primeiro */
+  flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  gap: 25px;
-  padding: 0 20px;
-  min-height: calc(100vh - 120px);
+  gap: 28px;
+  padding: 0 20px 80px;
   box-sizing: border-box;
 }
 
-
-
-/* ----- RESPONSIVIDADE ----- */
-
-/* Tablets / celulares */
+/* Responsive */
 @media (max-width: 768px) {
   .layout {
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    gap: 30px;
+    padding: 0 20px 60px;
+    gap: 24px;
   }
 }
 
-/* Celulares pequenos */
 @media (max-width: 480px) {
   .layout {
-    padding: 15px;
+    padding: 0 15px 50px;
     gap: 20px;
+  }
+  .descricao {
+    font-size: 15px;
   }
 }
 
@@ -45,27 +76,37 @@ html, body, #root {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
 
 .right {
   display: flex;
   justify-content: center;
+  width: 100%;
 }
 
 /* Loading spinner */
 .loading-icon {
-  margin-top: 20px;
+  margin-top: 24px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.loading-text {
+  color: #475569;
+  font-size: 14px;
+  font-weight: 400;
 }
 
 .spinner {
-  width: 48px;
-  height: 48px;
-  border: 4px solid rgba(37, 99, 235, 0.3);
-  border-top-color: #2563eb;
+  width: 44px;
+  height: 44px;
+  border: 3px solid rgba(56, 189, 248, 0.15);
+  border-top-color: #38bdf8;
   border-radius: 50%;
-  animation: spin 0.8s ease infinite, pulse 1.2s ease-in-out infinite;
+  animation: spin 0.85s linear infinite;
 }
 
 @keyframes spin {
@@ -74,33 +115,15 @@ html, body, #root {
   }
 }
 
-@keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.6); }
-  70% { box-shadow: 0 0 0 10px rgba(37, 99, 235, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
-}
-
-.descricao {
-  margin-top: 90px;
+/* Footer */
+.footer {
   text-align: center;
-  color: #cbd5e1;
-  font-size: 20px;
-  font-weight: 400;
-  line-height: 1.4;
-  padding: 0 20px;
-  max-width: 900px;
-  margin-left: auto;
-  margin-right: auto;
-
-  /* leve glow */
-  text-shadow: 0 0 8px rgba(56, 189, 248, 0.3);
+  padding: 24px 20px 32px;
+  color: #1e3a5f;
+  font-size: 13px;
+  letter-spacing: 0.3px;
 }
 
 /* Mobile */
-@media (max-width: 480px) {
-  .descricao {
-    margin-top: 70px;
-    font-size: 16px;
-  }
-}
+
 
