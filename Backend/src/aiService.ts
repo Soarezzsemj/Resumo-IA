@@ -12,8 +12,8 @@ if (!apiKey) {
 // Inicializa o cliente do Google Gemini
 const genAI = new GoogleGenerativeAI(apiKey);
 
-// Inicializa o modelo específico (Flash é rápido e ideal para resumos)
-const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
+// Inicializa o modelo específico (Flash é rápido e ideal para resumos) e sempre verficar para atualizar ele
+const model = genAI.getGenerativeModel({ model: "gemini-3.5-flash" });
 
 export async function generateSummary(text: string) {
   try {
