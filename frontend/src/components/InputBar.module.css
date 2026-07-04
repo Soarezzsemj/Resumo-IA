@@ -1,17 +1,42 @@
 .main {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 18px;
 }
 
 .Box-input {
-  width: 674px;
-  height: 539px;
-  border: 2px solid #1E3A8A;
-  border-radius: 5px;
-  padding: 20px;
-  background-color: #64748B;
+  width: 900px;
+  max-width: 90vw;
+  height: 320px;
+  border: 1.5px solid rgba(37, 99, 235, 0.3);
+  border-radius: 14px;
+  padding: 18px 22px;
+  background-color: #0d1b2e;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.Box-input:focus-within {
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.1);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .Box-input {
+    width: 90%;
+    height: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  .Box-input {
+    width: 100%;
+    height: 250px;
+    padding: 14px 16px;
+  }
 }
 
 .textarea {
@@ -21,17 +46,47 @@
   border: none;
   outline: none;
   background: transparent;
-  color: white;
+  color: #e2e8f0;
   font-size: 16px;
+  line-height: 1.65;
+  font-family: 'Inter', sans-serif;
+}
+
+.textarea::placeholder {
+  color: #334155;
 }
 
 .submit-button {
   width: 300px;
-  height: 60px;
-  border-radius: 10px;
-  background-color: #2563EB;
+  height: 52px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
   border: none;
   color: white;
-  font-size: 18px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1.8px;
   cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.35);
+}
+
+.submit-button:hover {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  box-shadow: 0 6px 22px rgba(37, 99, 235, 0.5);
+  transform: translateY(-2px);
+}
+
+.submit-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
+}
+
+/* Botão responsivo */
+@media (max-width: 480px) {
+  .submit-button {
+    width: 100%;
+    height: 50px;
+    font-size: 13px;
+  }
 }
