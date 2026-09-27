@@ -1,0 +1,2 @@
+.stats { display: flex; flex-wrap: wrap; gap: 8px 16px; color: var(--text-secondary); font-size: 12px; margin-top: 14px; }
+.stats strong { color: var(--success); font-weight: 600; }

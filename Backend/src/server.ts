@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import routes from "./routes"; // <--- IMPORTA AQUI
+import { log } from "./logger";
 
 dotenv.config();
 
@@ -13,6 +14,4 @@ app.use("/api", routes); // <--- REGISTRA AQUI
 
 const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, () => {
-  console.log(`Servidor rodando na porta ${PORT}`);
-});
+app.listen(PORT, () => log("info", "Servidor iniciado", { port: PORT }));

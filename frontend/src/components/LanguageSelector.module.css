@@ -1,0 +1,2 @@
+.label { display: flex; align-items: center; gap: 8px; color: var(--text-secondary); font-size: 12px; }
+.label select { border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; background: var(--bg-secondary); color: var(--text-primary); font: inherit; font-size: 13px; }

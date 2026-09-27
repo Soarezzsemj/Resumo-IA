@@ -36,6 +36,9 @@ Este projeto combina:
 ## ✨ Funcionalidades
 
 - 🧠 Geração automática de resumos  
+- 🔗 Extração de artigos por URL
+- 📄 Importação de arquivos `.txt` e `.pdf`
+- 🎛️ Formato, tom e idioma configuráveis  
 - 🎨 Interface limpa e responsiva  
 - 🔄 Sistema de carregamento visual  
 - 🌐 API REST com Express  
@@ -128,14 +131,45 @@ Este projeto combina:
 
 - **Build command:** `npm run build`
 - **Output directory:** `dist`
-- **Variável:** `VITE_API_URL`
+- **Variável:** `REACT_APP_API_URL` (opcional; padrão aponta para o backend publicado)
 
 ---
+
+## ⚙️ Configuração do backend
+
+Além de `GEMINI_API_KEY`, o backend aceita:
+
+- `GEMINI_FALLBACK_MODEL`: modelo usado se a listagem falhar (padrão `gemini-2.5-flash`).
+- `GEMINI_MODEL_CACHE_TTL_MS`: validade do cache em memória (padrão 24 horas).
+- `GEMINI_MODEL_LOCK`: trava uma versão específica e desativa a descoberta automática.
+- `ALLOW_EXPERIMENTAL_MODELS=true`: permite modelos `preview`, `experimental` e `exp`.
+- `GEMINI_REQUEST_TIMEOUT_MS`, `MAX_TEXT_LENGTH` e `MAX_TEXT_WORDS`: timeout e limites de entrada.
+
+Em operação normal, o serviço consulta `v1beta/models`, mantém apenas modelos com `flash` e
+`generateContent`, descarta versões experimentais e escolhe a maior versão numérica. O resultado
+fica em cache. Se a atualização falhar, usa o último modelo cacheado; sem cache, usa
+`GEMINI_FALLBACK_MODEL`. A resposta de resumo inclui `model` e `fallback`, e a rota de diagnóstico
+`/api/model-info` expõe o estado atual. A função pura `selectLatestFlashModel` pode ser testada
+com listas simuladas para cobrir versões, sufixos e ausência de candidatos.
 
 ## 📡 Endpoints
 
 ### **POST /api/summary**
-Gera um resumo usando o modelo Gemini.
+Gera um resumo usando o modelo Gemini. Aceita JSON com `text`, `format` (`topics`,
+`paragraph` ou `tldr`), `tone` (`formal`, `casual` ou `technical`), `language`
+(`pt-BR`, `en` ou `es`) e `url`. Ao enviar `url`, o backend extrai o conteúdo
+principal da página antes de resumir.
+
+Também aceita `multipart/form-data` com o campo `file` para `.txt` ou `.pdf`.
+
+### POST /api/extract-file
+
+Recebe um arquivo `.txt` ou `.pdf` em `multipart/form-data` e devolve o texto
+extraído para preencher a área de edição antes do envio.
+
+### GET /api/model-info
+
+Exibe o modelo selecionado, a origem da seleção e se o serviço está usando fallback.
 
 ---
 
@@ -143,4 +177,3 @@ Gera um resumo usando o modelo Gemini.
 
 Desenvolvido por **Carlos Eduardo (Soarezz)** 🇧🇷  
 Contribuições e sugestões são sempre bem-vindas!
-

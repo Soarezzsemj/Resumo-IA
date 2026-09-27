@@ -1,0 +1,4 @@
+.empty { width: 900px; max-width: 90vw; min-height: 150px; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: center; border: 1px dashed var(--border); border-radius: 14px; color: var(--text-secondary); background: rgba(30, 27, 24, .5); }
+.icon { color: var(--accent); font-size: 24px; }
+.empty p { margin: 8px 0 4px; color: var(--text-primary); font-size: 15px; }
+.empty small { font-size: 12px; }

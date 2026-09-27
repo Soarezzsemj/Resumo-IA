@@ -1,14 +1,59 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: #0F172A;
+:root {
+  --bg-primary: #141210;
+  --bg-secondary: #1E1B18;
+  --accent: #E8794A;
+  --accent-hover: #F2895C;
+  --accent-pressed: #D46536;
+  --text-primary: #F0E6D8;
+  --text-secondary: #A89A8A;
+  --border: #332E28;
+  --error: #D65C4A;
+  --success: #8FA35E;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-primary);
+  overflow-x: hidden;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
+
+.hero {
+  padding: 110px 20px 8px;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(232, 121, 74, 0.12);
+  border: 1px solid var(--accent);
+  color: var(--accent-hover);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.8px;
+  padding: 5px 14px;
+  border-radius: 9999px;
+  margin-bottom: 20px;
+}
+
+.descricao { color: var(--text-secondary); font-size: 17px; line-height: 1.75; margin: 0; }
+.layout { margin-top: 28px; display: flex; flex-direction: column; align-items: center; gap: 28px; padding: 0 20px 80px; box-sizing: border-box; }
+.left, .right { display: flex; width: 100%; }
+.left { flex-direction: column; align-items: center; }
+.right { justify-content: center; flex-direction: column; align-items: center; }
+.loading-icon { margin-top: 24px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.loading-text { color: var(--text-secondary); font-size: 14px; }
+.spinner { width: 44px; height: 44px; border: 3px solid rgba(232, 121, 74, 0.2); border-top-color: var(--accent); border-radius: 50%; animation: spin 0.85s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.footer { text-align: center; padding: 24px 20px 32px; color: var(--text-secondary); font-size: 13px; }
+.error-message { width: min(900px, 90vw); margin: 20px auto 0; color: var(--error); text-align: center; }
+.model-info { margin-top: 12px; color: var(--text-secondary); font-size: 12px; }
+
+@media (max-width: 768px) { .layout { padding: 0 20px 60px; gap: 24px; } }
+@media (max-width: 480px) { .layout { padding: 0 15px 50px; gap: 20px; } .descricao { font-size: 15px; } }

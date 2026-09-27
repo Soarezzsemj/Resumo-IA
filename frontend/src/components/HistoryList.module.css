@@ -1,0 +1,6 @@
+.history { width: 900px; max-width: 90vw; margin-top: 18px; }
+.history h3 { margin: 0 0 8px; color: var(--text-secondary); font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: .08em; }
+.item { width: 100%; display: flex; justify-content: space-between; gap: 12px; padding: 10px 12px; border: 1px solid var(--border); border-radius: 8px; background: var(--bg-secondary); color: var(--text-primary); text-align: left; cursor: pointer; margin-top: 6px; transition: border-color .18s, transform .18s, box-shadow .18s; }
+.item:hover { border-color: var(--accent); transform: translateX(3px); box-shadow: 0 4px 14px rgba(232, 121, 74, .16); }
+.item span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 13px; }
+.item small { color: var(--text-secondary); white-space: nowrap; font-size: 11px; }
